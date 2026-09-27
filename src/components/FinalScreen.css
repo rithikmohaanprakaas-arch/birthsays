@@ -1,0 +1,192 @@
+/* ============================================
+   FinalScreen Styles
+   ============================================ */
+
+.final-screen {
+  background: radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%),
+              var(--bg-primary);
+}
+
+/* Ambient glowing orbs */
+.final-glow-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08), transparent 70%);
+  top: -200px;
+  left: -100px;
+  pointer-events: none;
+  animation: pulse 4s ease infinite;
+}
+
+.final-glow-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06), transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  pointer-events: none;
+  animation: pulse 5s ease infinite 1s;
+}
+
+.final-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Countdown display */
+.countdown-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-number {
+  font-size: clamp(5rem, 20vw, 12rem);
+  font-weight: 900;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+/* Reveal section */
+.reveal-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.birthday-title {
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Mission Complete badge */
+.mission-complete-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
+.check-mark {
+  font-size: 1.2rem;
+}
+
+.gift-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.surprise-btn {
+  font-size: 1.1rem;
+  padding: 16px 44px;
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+}
+
+.surprise-btn:hover {
+  box-shadow: 0 6px 24px rgba(236, 72, 153, 0.3);
+}
+
+/* Surprise section */
+.surprise-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  text-align: center;
+}
+
+.surprise-emoji-burst {
+  font-size: clamp(2rem, 8vw, 4rem);
+  animation: bounce 1.5s ease infinite;
+  letter-spacing: 8px;
+}
+
+.final-message-card {
+  max-width: 550px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+}
+
+.final-message-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.final-signature {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--glass-border);
+}
+
+.final-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--spacing-md);
+}
+
+.footer-note {
+  font-size: 0.85rem;
+}
+
+.footer-year {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .final-message-card {
+    padding: var(--spacing-md);
+  }
+
+  .surprise-emoji-burst {
+    letter-spacing: 4px;
+  }
+
+  .mission-complete-badge {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+}

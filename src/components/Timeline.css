@@ -1,0 +1,194 @@
+/* ============================================
+   Timeline Styles
+   ============================================ */
+
+.timeline-screen {
+  background: radial-gradient(ellipse at 30% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+              var(--bg-primary);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-header {
+  text-align: center;
+}
+
+/* The vertical line that connects all items */
+.timeline-track {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-md) 0;
+}
+
+/* The center line */
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-purple), var(--accent-blue), transparent);
+  transform: translateX(-50%);
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Alternate left/right positioning */
+.item-left {
+  flex-direction: row;
+  padding-right: 55%;
+}
+
+.item-right {
+  flex-direction: row-reverse;
+  padding-left: 55%;
+}
+
+/* The dot on the timeline */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.dot-inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  transition: all 0.3s ease;
+}
+
+.timeline-item.expanded .timeline-dot {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+}
+
+.timeline-item.expanded .dot-inner {
+  background: var(--accent-cyan);
+}
+
+/* Timeline card */
+.timeline-card {
+  flex: 1;
+  padding: var(--spacing-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.expand-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--spacing-xs);
+  display: block;
+}
+
+/* Expanded content */
+.timeline-detail {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Photo container */
+.timeline-image-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.timeline-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Photo placeholder */
+.timeline-image-placeholder {
+  padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Responsive — stack vertically on mobile */
+@media (max-width: 600px) {
+  .timeline-track::before {
+    left: 24px;
+  }
+
+  .timeline-item,
+  .item-left,
+  .item-right {
+    flex-direction: row;
+    padding-left: 56px;
+    padding-right: 0;
+  }
+
+  .timeline-dot {
+    left: 24px;
+  }
+
+  .timeline-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,147 @@
+/* ============================================
+   WelcomeScreen Styles
+   ============================================ */
+
+.welcome-screen {
+  background: radial-gradient(ellipse at 30% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+              var(--bg-primary);
+}
+
+/* Ambient gradient orbs in the background */
+.welcome-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.welcome-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(139, 92, 246, 0.08);
+  top: -100px;
+  right: -100px;
+}
+
+.welcome-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(59, 130, 246, 0.06);
+  bottom: -80px;
+  left: -80px;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 600px;
+}
+
+/* Terminal badge at the top */
+.terminal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.terminal-icon {
+  font-size: 1.2rem;
+}
+
+/* Loading section */
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.loading-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+/* Progress bar */
+.progress-bar-track {
+  width: 100%;
+  max-width: 400px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-button);
+  border-radius: var(--radius-full);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+.loading-percent {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+}
+
+/* Greeting section */
+.greeting-section {
+  text-align: center;
+}
+
+.greeting-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.greeting-sub {
+  font-size: 1.1rem;
+  margin-top: var(--spacing-xs);
+}
+
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block;
+  color: var(--accent-purple);
+  font-weight: 300;
+  animation: blink 0.7s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Start button */
+.start-btn {
+  margin-top: var(--spacing-md);
+  font-size: 1.05rem;
+  padding: 16px 40px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .terminal-badge {
+    font-size: 0.7rem;
+    padding: 8px 16px;
+    letter-spacing: 1px;
+  }
+
+  .loading-percent {
+    font-size: 1.5rem;
+  }
+}
